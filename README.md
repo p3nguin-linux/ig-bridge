@@ -58,4 +58,3 @@ Antes de publicar: cambia `maintainer` en `manifest.json.in` y el nombre
 - Instagram cambia su web a menudo: por eso el script inyectado evita depender de clases CSS.
 - Probado aquí: configuración CMake + compilación C++ (Qt 5.15) en amd64.
   **No** probado en un dispositivo Ubuntu Touch ni con Clickable.
-- Marca: no uses el logo oficial de Instagram si vas a publicar en OpenStore.
