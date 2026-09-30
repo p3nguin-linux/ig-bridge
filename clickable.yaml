@@ -1,0 +1,8 @@
+clickable_minimum_required: 7.0.0
+framework: ubuntu-sdk-20.04
+builder: cmake
+kill: instagrambridge
+dependencies_target:
+  - qtbase5-dev
+  - qtdeclarative5-dev
+  - qtwebengine5-dev

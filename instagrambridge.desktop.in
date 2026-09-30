@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=IG Bridge
+Comment=Cliente ligero de Instagram para Ubuntu Touch
+Exec=instagrambridge %u
+Icon=assets/icon.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+X-Lomiri-Touch=true
+X-Lomiri-Splash-Title=IG Bridge
