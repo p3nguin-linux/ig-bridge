@@ -1,11 +1,11 @@
 {
     "name": "instagrambridge.aprilpixelrain",
     "title": "IG Bridge",
-    "description": "Cliente ligero de Instagram (web) para Ubuntu Touch",
-    "version": "0.1.0",
+    "description": "Cliente ligero de Instagram y Facebook (web) para Ubuntu Touch",
+    "version": "0.2.0",
     "architecture": "@CLICK_ARCH@",
     "framework": "ubuntu-sdk-20.04",
-    "maintainer": "p3nguin",
+    "maintainer": "p3nguin <penguinlinux63@gmail.com>",
     "hooks": {
         "instagrambridge": {
             "apparmor": "apparmor.json",

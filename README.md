@@ -1,7 +1,19 @@
-# IG Bridge — Instagram para Ubuntu Touch (C++ / Qt / QML)
+# IG Bridge — Instagram y Facebook para Ubuntu Touch (C++ / Qt / QML)
 
 App nativa (ejecutable C++ + interfaz QML de Lomiri) que muestra Instagram web
-con QtWebEngine y un "puente" C++ que controla lo que la web puede hacer.
+y Facebook web con QtWebEngine y un "puente" C++ que controla lo que la web puede hacer.
+
+## Instagram + Facebook en una sola app (v0.2.0)
+- Selector **Instagram | Facebook** en la barra superior.
+- Cada servicio tiene su propio perfil de navegador (cookies, sesión y caché separadas),
+  por eso no se mezclan ni entran en conflicto. Facebook se carga solo la primera vez que lo abres.
+- Un **botón único de menú** (☰) despliega las opciones del servicio activo:
+  - Instagram: Inicio, Explorar, Reels, Mensajes, Notificaciones, Crear publicación.
+  - Facebook: Inicio, Amigos, Videos, Mensajes, Notificaciones, Crear publicación, Mi perfil.
+- Los enlaces a Instagram dentro de Facebook se abren en la pestaña de Instagram (y al revés no se mezclan sesiones).
+- La app recuerda el último servicio y la última página de cada uno.
+- "Crear publicación" no tiene URL directa en la web: el puente intenta pulsar el botón
+  de la propia página (si no está visible, vuelve al inicio y lo reintenta). Es de mejor esfuerzo.
 
 ## Qué hace el puente C++ (`src/bridge.cpp`)
 - User-Agent móvil y URL de arranque (retoma la última página o un enlace externo de Instagram).
@@ -42,16 +54,17 @@ clickable build --arch arm64      # solo generar el .click (usa armhf en teléfo
 Para el teléfono: Ajustes → Acerca de → pulsa 7 veces "Número de compilación"
 (o Ajustes → Modo desarrollador) y activa ADB. Comprueba con `adb devices`.
 
+Antes de publicar: cambia `maintainer` en `manifest.json.in` y el nombre
+`instagrambridge.aprilpixelrain` si quieres otro identificador.
+
 ## Permisos (`apparmor.json`)
 `networking`, `webview` (QtWebEngine), `camera`/`microphone`/`audio`/`video`
 (historias, reels), `content_exchange`/`content_exchange_source` (subir/descargar archivos).
 
 ## Limitaciones honestas
-- Es Instagram **web**: sin notificaciones push nativas, y algunas funciones (crear
+- Es Instagram/Facebook **web**: sin notificaciones push nativas, y algunas funciones (crear
   reels, ciertos filtros) no existen en la versión web.
 - Subir fotos depende del selector de archivos de Morph.Web/Content Hub: pruébalo en tu dispositivo.
 - Los enlaces externos se abren con `QDesktopServices`; si tu política AppArmor lo bloquea, no se abrirán.
 - El User-Agent (`kUserAgent` en `bridge.cpp`) debe coincidir con el Chromium de tu UT.
 - Instagram cambia su web a menudo: por eso el script inyectado evita depender de clases CSS.
-- Probado aquí: configuración CMake + compilación C++ (Qt 5.15) en amd64.
-  **No** probado en un dispositivo Ubuntu Touch ni con Clickable.

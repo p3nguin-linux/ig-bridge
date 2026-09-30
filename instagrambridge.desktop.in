@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=IG Bridge
-Comment=Cliente ligero de Instagram para Ubuntu Touch
+Comment=Cliente ligero de Instagram y Facebook para Ubuntu Touch
 Exec=instagrambridge %u
 Icon=assets/icon.png
 Terminal=false
