@@ -42,9 +42,6 @@ clickable build --arch arm64      # solo generar el .click (usa armhf en teléfo
 Para el teléfono: Ajustes → Acerca de → pulsa 7 veces "Número de compilación"
 (o Ajustes → Modo desarrollador) y activa ADB. Comprueba con `adb devices`.
 
-Antes de publicar: cambia `maintainer` en `manifest.json.in` y el nombre
-`instagrambridge.aprilpixelrain` si quieres otro identificador.
-
 ## Permisos (`apparmor.json`)
 `networking`, `webview` (QtWebEngine), `camera`/`microphone`/`audio`/`video`
 (historias, reels), `content_exchange`/`content_exchange_source` (subir/descargar archivos).
